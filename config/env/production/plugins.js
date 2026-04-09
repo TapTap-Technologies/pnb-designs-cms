@@ -1,16 +1,14 @@
 module.exports = ({ env }) => ({
-  // ...
   upload: {
     config: {
-      provider: "strapi-provider-upload-do",
+      provider: "strapi-provider-upload-azure-storage",
       providerOptions: {
-        key: env('DO_SPACES_KEY'),
-        secret: env('DO_SPACES_SECRET'),
-        endpoint: env('DO_SPACES_ENDPOINT'),
-        space: env('DO_SPACES_BUCKET'),
-        directory: "pbdesigns", // optional
+        authType: 'default',
+        account: env('AZURE_STORAGE_ACCOUNT_NAME'),
+        accountKey: env('AZURE_STORAGE_ACCOUNT_KEY'),
+        containerName: env('AZURE_STORAGE_CONTAINER_NAME'),
+        defaultPath: 'pbdesigns',
       },
     },
   },
-  // ...
 });
